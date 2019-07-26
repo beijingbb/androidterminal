@@ -1,0 +1,32 @@
+
+import commands
+import os
+import socket
+
+
+
+def IsOpen(ip,port):
+    s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+    try:
+        s.connect((ip,int(port)))
+        s.shutdown(2)
+        #print '%d is open' % port
+        return True
+    except:
+        #print '%d is down' % port
+        return False
+def yingyong(environ, start_response):
+    start_response('200 OK', [('Content-Type', 'text/html')])
+    commands.getstatusoutput('am start -n com.termux.api/xinda.activity.CameraActivity')
+    return [b'<h1>!</h1>']
+from wsgiref.simple_server import make_server
+
+if __name__ == '__main__':
+    a=8900
+ 
+    if IsOpen('127.0.0.1',a) :
+        a=8900
+    else :
+        commands.getstatusoutput('cd /;EditOnline '+str(a))
+    
+
