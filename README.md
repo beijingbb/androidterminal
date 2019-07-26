@@ -1,2 +1,3 @@
 # androidterminal
 linux terminal for android
+wait....
